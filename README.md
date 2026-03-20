@@ -12,6 +12,17 @@
 <p align="center">
   <b>PAMA is not just a script. It is an advanced, offline-capable machine learning bridging tool and native Lottie-to-Shape-Layer compiler built directly into the Adobe CEP environment.</b>
 </p>
+
+<div align="center">
+
+![PAMA Interface](pama_demo.png)
+
+<br/>
+
+https://github.com/nishantmulchandani/PAMA/raw/main/pama_demo.mp4
+
+*Click the video above to see PAMA live in action!*
+</div>
 </div>
 
 ---
@@ -62,6 +73,33 @@ To run this massive local engine, you install it directly as an Adobe CEP extens
 5. Launch the tool via **Window > Extensions > PAMA**.
 
 > **Note on Privacy:** PAMA has had all hardcoded API keys and external LLM cloud telemetry ripped out. Out of the box, it is a 100% offline visual library and Shape-Layer compiler.
+
+---
+
+## 👨‍💻 Developer Guide: How to Work With It
+
+Since PAMA is a full-stack local application embedded in a CEP panel, you must build the client and start the local server when altering the source code.
+
+### 1. Start the Node.js Server (Backend/AI Engine)
+PAMA's AI Search, SQLite Database, and ExtendScript Gateway run locally.
+```bash
+cd server
+npm install
+npm start
+```
+*(Keep this terminal running during development to process searches and imports).*
+
+### 2. Build the React Client (Frontend)
+The beautiful visual extension inside After Effects is built with React 18 and TailwindCSS.
+```bash
+cd client
+npm install
+npm run build
+```
+*(This compiles the UI payload into `/client` which the Adobe panel loads directly).*
+
+### 3. Load the Extension
+With the server running and the client built, open After Effects and navigate to **Window > Extensions > PAMA**. Note: Due to Chromium Embedded Framework caching, you may need to clear your CEP cache or reload the panel during hot development.
 
 ---
 
