@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>PAMA Server</title>
+</head>
+<body>
+  <script>
+    // Start the Node.js backend by requiring and running server/main.js
+    try {
+      const localServer = cep_node.require('./server/main.js');
+      if (typeof localServer === 'function') {
+        localServer();  // Execute the exported run() function from main.js
+        console.log("PAMA Server started successfully");
+      } else {
+        console.error("PAMA Server module doesn't export a function");
+      }
+    } catch (e) {
+      console.error("Error starting PAMA Server:", e);
+    }
+  </script>
+</body>
+</html> 

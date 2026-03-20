@@ -1,0 +1,155 @@
+/* Main application container */
+.app-container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main layout container */
+.app-layout {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Two-pane layout: sidebar + chat */
+.chat-container {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #242424;
+}
+
+/* Ensure the app fills the entire viewport */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Debug panel styling */
+
+/* Standalone debug button container */
+.standalone-debug-button-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+}
+
+/* Authentication Required Screen */
+.auth-required-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #1a1a1a;
+}
+
+.auth-required-content {
+  text-align: center;
+  max-width: 400px;
+  padding: 40px;
+}
+
+.pama-logo-large {
+  margin-bottom: 40px;
+}
+
+.pama-logo-title-large {
+  font-size: 48px;
+  font-weight: 900;
+  color: #6366f1;
+  margin-bottom: 8px;
+}
+
+.pama-logo-sub-large {
+  font-size: 18px;
+  color: #9ca3af;
+}
+
+.auth-message h2 {
+  color: #fff;
+  margin-bottom: 16px;
+  font-size: 24px;
+}
+
+.auth-message p {
+  color: #9ca3af;
+  margin-bottom: 32px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.auth-steps {
+  margin-bottom: 32px;
+}
+
+.auth-step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: #6366f1;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 12px;
+}
+
+.step-text {
+  color: #e5e5e5;
+  font-size: 14px;
+}
+
+.retry-auth-btn {
+  background-color: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.retry-auth-btn:hover {
+  background-color: #5b5bf6;
+}
+
+.retry-auth-btn:active {
+  background-color: #4f46e5;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+  .chat-container {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .auth-required-content {
+    padding: 20px;
+    max-width: 300px;
+  }
+  
+  .pama-logo-title-large {
+    font-size: 36px;
+  }
+}

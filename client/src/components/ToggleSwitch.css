@@ -1,0 +1,159 @@
+/* Toggle Switch Component Styles */
+
+.toggle-switch-container {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+.toggle-switch-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #e5e7eb;
+  font-weight: 500;
+}
+
+.toggle-switch-text {
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.toggle-switch-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.toggle-switch-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.toggle-switch-slider {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  background-color: #374151;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid #4b5563;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background-color: #9ca3af;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Checked state */
+.toggle-switch-input:checked + .toggle-switch-slider {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  border-color: #6366f1;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.toggle-switch-input:checked + .toggle-switch-slider .toggle-switch-thumb {
+  transform: translateX(20px);
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Hover effects */
+.toggle-switch-label:hover .toggle-switch-slider {
+  border-color: #6b7280;
+}
+
+.toggle-switch-label:hover .toggle-switch-input:checked + .toggle-switch-slider {
+  background: linear-gradient(135deg, #5b52f0, #8b5cf6);
+  border-color: #7c3aed;
+}
+
+/* Focus effects */
+.toggle-switch-input:focus + .toggle-switch-slider {
+  outline: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
+
+.toggle-switch-input:focus:checked + .toggle-switch-slider {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(99, 102, 241, 0.4);
+}
+
+/* Disabled state */
+.toggle-switch-container.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.toggle-switch-container.disabled .toggle-switch-label {
+  cursor: not-allowed;
+  color: #6b7280;
+}
+
+/* Size variations */
+.toggle-switch-container.small .toggle-switch-slider {
+  width: 36px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.toggle-switch-container.small .toggle-switch-thumb {
+  width: 14px;
+  height: 14px;
+  top: 2px;
+  left: 2px;
+}
+
+.toggle-switch-container.small .toggle-switch-input:checked + .toggle-switch-slider .toggle-switch-thumb {
+  transform: translateX(16px);
+}
+
+.toggle-switch-container.large .toggle-switch-slider {
+  width: 52px;
+  height: 28px;
+  border-radius: 14px;
+}
+
+.toggle-switch-container.large .toggle-switch-thumb {
+  width: 22px;
+  height: 22px;
+  top: 2px;
+  left: 2px;
+}
+
+.toggle-switch-container.large .toggle-switch-input:checked + .toggle-switch-slider .toggle-switch-thumb {
+  transform: translateX(24px);
+}
+
+/* Animation for smooth transitions */
+@keyframes toggleOn {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes toggleOff {
+  0% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

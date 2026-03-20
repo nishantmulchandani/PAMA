@@ -1,0 +1,257 @@
+/* Glass Morphism Animation Execution Bar */
+.animation-execution-container {
+  position: relative;
+  margin: 16px 0;
+  z-index: 10;
+  max-width: 600px;
+  width: fit-content;
+  min-width: 320px;
+}
+
+/* Clean Container - No Purple Glow */
+.grok-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(2px) saturate(180%);
+  -webkit-backdrop-filter: blur(2px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px; /* Fixed corner radius */
+  padding: 16px 20px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.15); /* Removed purple glow completely */
+  color: rgba(255, 255, 255, 1);
+  overflow: hidden; /* Hide any overflow to fix corner issues */
+  min-height: 70px;
+  max-height: 100px;
+  isolation: isolate;
+}
+
+/* Purple orbiting animation removed - was causing visual noise */
+
+/* Clean Glass Shine - No Blur Effects */
+.grok-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px; /* Match container radius */
+  /* Removed all backdrop-filter and filter effects to eliminate blur artifacts */
+  opacity: 0.4;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.grok-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Glass morphism progress bar */
+.grok-progress-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.grok-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0.8) 100%);
+  border-radius: 3px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
+}
+
+.grok-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Main content area */
+.grok-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.grok-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.grok-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.grok-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.grok-subtitle {
+  font-size: 12px;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.grok-subtitle:hover {
+  opacity: 1;
+}
+
+.grok-json-preview {
+  font-size: 10px;
+  opacity: 0.7;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.grok-arrow {
+  font-size: 16px;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+/* Error state */
+.grok-error {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 8px;
+}
+
+.grok-error span {
+  font-size: 12px;
+  flex: 1;
+}
+
+.grok-retry {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.grok-retry:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Cancel button integrated */
+.grok-cancel {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.grok-cancel:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .animation-execution-container {
+    max-width: 350px;
+  }
+
+  .grok-container {
+    padding: 12px;
+    min-height: 70px;
+    max-height: 100px;
+  }
+
+  .grok-title {
+    font-size: 13px;
+  }
+
+  .grok-subtitle {
+    font-size: 11px;
+  }
+
+  .grok-json-preview {
+    font-size: 9px;
+  }
+}
+
+/* Enhanced Animation entrance (Grok-like) */
+.animation-execution-container {
+  animation: grokEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes grokEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}

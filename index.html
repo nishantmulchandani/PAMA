@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PAMA Agent - Animation AI</title>
+  <!-- Load CSInterface first -->
+  <script src="./CSInterface.js"></script>
+  <!-- Load Socket.IO for real-time auth events -->
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <!-- Load PAMMA Authentication System (Battle-Tested) -->
+  <script src="./auth-manager.js"></script>
+  <script src="./auth-ui.js"></script>
+  <!-- Required Node.js globals for Bodymovin bundle -->
+  <script>
+    // Provide Node.js filesystem access via CEP
+    window.__fs = window.cep_node ? window.cep_node.require('fs') : {
+      readFileSync: function () { throw new Error('Node.js not available'); }
+    };
+
+    // Provide Node.js path utilities via CEP
+    window.__path = window.cep_node ? window.cep_node.require('path') : {
+      join: function () { return Array.prototype.join.call(arguments, '/'); }
+    };
+
+    // Mock Howler.js audio library (not needed for import functionality)
+    window.Howl = function () {
+      return {
+        play: function () { },
+        pause: function () { },
+        stop: function () { },
+        volume: function () { }
+      };
+    };
+
+    // Error handling for bundle loading
+    window.addEventListener('error', function (e) {
+      console.error('Bundle loading error:', e.message);
+    });
+  </script>
+  <!-- OFFICIAL Bodymovin importer bundle (do NOT rename) -->
+  <script src="./client/js/main.50407a1f.js"></script>
+  <!-- NeoBrutalism Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@400;900&family=Public+Sans:wght@400;600;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // Log when the HTML starts loading
+    console.log("PAMA: HTML document loading started");
+
+    // Make sure the root element is preserved
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log("PAMA: DOM content loaded, checking root element");
+
+      // Ensure the root element exists and is properly configured
+      const rootElement = document.getElementById('root');
+      if (rootElement) {
+        console.log("PAMA: Root element found");
+
+        // Make sure it has the right class
+        if (!rootElement.classList.contains('app-container')) {
+          rootElement.classList.add('app-container');
+          console.log("PAMA: Added app-container class to root element");
+        }
+
+        // Make sure it's visible
+        rootElement.style.display = 'block';
+        rootElement.style.width = '100%';
+        rootElement.style.height = '100%';
+      } else {
+        console.error("PAMA: Root element not found, creating it");
+
+        // Create the root element if it doesn't exist
+        const newRoot = document.createElement('div');
+        newRoot.id = 'root';
+        newRoot.className = 'app-container';
+        newRoot.style.display = 'block';
+        newRoot.style.width = '100%';
+        newRoot.style.height = '100%';
+        document.body.appendChild(newRoot);
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <!-- This is where React will mount -->
+  <div id="root" class="app-container"></div>
+
+
+
+  <!-- Initialize Redux store for convert function -->
+  <script src="./client/js/redux-init.js"></script>
+
+  <!-- Load Working Bodymovin Import System -->
+  <script src="pama-consolidated.bundle.js"></script>
+
+
+</body>
+
+</html>

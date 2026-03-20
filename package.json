@@ -1,0 +1,13 @@
+{
+  "name": "offline-lottie-importer",
+  "version": "1.0.0",
+  "description": "Offline Lottie Importer for After Effects",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.9.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1",
+    "uuid": "^11.1.0"
+  }
+}

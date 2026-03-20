@@ -1,0 +1,295 @@
+/* Chat Thread Component Styles */
+
+.chat-thread-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #1e1e1e;
+}
+
+/* Header styles */
+.chat-header {
+  background-color: #2a2a2a;
+  padding: 16px;
+  border-bottom: 1px solid #444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.chat-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* Remove the old mode-toggles from header */
+
+.status-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.connection-status, .database-status {
+  display: flex;
+  align-items: center;
+}
+
+.status-indicator {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-indicator.connected {
+  background-color: #4ade80;
+}
+
+.status-indicator.disconnected {
+  background-color: #ef4444;
+}
+
+.status-indicator.db-saved {
+  background-color: #60a5fa;
+}
+
+.status-indicator.db-pending {
+  background-color: #fbbf24;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+.status-text {
+  font-size: 0.875rem;
+  color: #d1d5db;
+}
+
+/* Messages container */
+.messages-container {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Welcome message */
+.welcome-message {
+  text-align: center;
+  padding: 32px 0;
+}
+
+.welcome-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.welcome-subtitle {
+  color: #a3a3a3;
+  margin-bottom: 16px;
+}
+
+.welcome-prompt {
+  font-size: 0.875rem;
+  color: #737373;
+}
+
+/* Message styling */
+.message-wrapper {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.agent-message {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  max-width: 75%;
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.user-message .message-bubble {
+  background-color: #2563eb;
+  color: white;
+}
+
+.agent-message .message-bubble {
+  background-color: #374151;
+  color: white;
+}
+
+.draft-message {
+  opacity: 0.7;
+}
+
+.typing-indicator {
+  font-size: 0.75rem;
+  color: #d1d5db;
+  margin-top: 4px;
+}
+
+/* Input area */
+.input-container {
+  padding: 16px;
+  border-top: 1px solid #444;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-mode-toggles {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start;
+  padding-bottom: 8px;
+}
+
+.message-form {
+  display: flex;
+  align-items: center;
+}
+
+.message-input {
+  flex: 1;
+  background-color: #2a2a2a;
+  color: white;
+  border: none;
+  border-radius: 8px 0 0 8px;
+  padding: 12px 16px;
+  outline: none;
+}
+
+.message-input:focus {
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.message-input.animate-mode {
+  border-color: #7c3aed;
+  background-color: rgba(124, 58, 237, 0.1);
+}
+
+.message-input.animate-mode:focus {
+  box-shadow: 0 0 0 2px #7c3aed;
+}
+
+.send-button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  padding: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.send-button:hover {
+  background-color: #1d4ed8;
+}
+
+.send-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.send-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Agent response formatting */
+.agent-response {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Plan section styling */
+.response-plan {
+  background-color: rgba(31, 111, 235, 0.1);
+  border-left: 3px solid #1f6feb;
+  padding: 0.75rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.plan-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #c9d1d9;
+}
+
+.plan-steps {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.plan-step {
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+/* Explanation section styling */
+.response-explanation {
+  background-color: rgba(46, 160, 67, 0.1);
+  border-left: 3px solid #2ea043;
+  padding: 0.75rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.explanation-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #c9d1d9;
+}
+
+.explanation-text {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Typing indicator styling */
+.typing-indicator {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #8b949e;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.typing-indicator::after {
+  content: "...";
+  animation: ellipsis 1.5s infinite;
+  width: 1.5rem;
+  display: inline-block;
+  text-align: left;
+}
+
+@keyframes ellipsis {
+  0% { content: "."; }
+  33% { content: ".."; }
+  66% { content: "..."; }
+}

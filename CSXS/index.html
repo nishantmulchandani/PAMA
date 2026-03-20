@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>PAMA Panel</title>
+  <!-- Load CSInterface first -->
+  <script src="./CSInterface.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // Log when the HTML starts loading
+    console.log("PAMA: HTML document loading started");
+
+    // Make sure the root element is preserved
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log("PAMA: DOM content loaded, checking root element");
+
+      // Ensure the root element exists and is properly configured
+      const rootElement = document.getElementById('root');
+      if (rootElement) {
+        console.log("PAMA: Root element found");
+
+        // Make sure it has the right class
+        if (!rootElement.classList.contains('app-container')) {
+          rootElement.classList.add('app-container');
+          console.log("PAMA: Added app-container class to root element");
+        }
+
+        // Make sure it's visible
+        rootElement.style.display = 'block';
+        rootElement.style.width = '100%';
+        rootElement.style.height = '100%';
+      } else {
+        console.error("PAMA: Root element not found, creating it");
+
+        // Create the root element if it doesn't exist
+        const newRoot = document.createElement('div');
+        newRoot.id = 'root';
+        newRoot.className = 'app-container';
+        newRoot.style.display = 'block';
+        newRoot.style.width = '100%';
+        newRoot.style.height = '100%';
+        document.body.appendChild(newRoot);
+      }
+    });
+  </script>
+</head>
+<body>
+  <!-- This is where React will mount -->
+  <div id="root" class="app-container"></div>
+
+  <!-- Load React bundle after the DOM is ready -->
+  <script src="index.bundle.js"></script>
+</body>
+</html>

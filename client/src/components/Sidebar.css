@@ -1,0 +1,28 @@
+.pama-sidebar{width:280px;background:#171717;border-right:1px solid #333;display:flex;flex-direction:column}
+.pama-sidebar-header{display:flex;align-items:center;justify-content:space-between;padding:12px 12px;border-bottom:1px solid #333}
+.pama-logo-title{font-weight:900;color:#6366f1}
+.pama-logo-sub{font-size:12px;color:#9ca3af}
+.pama-new-btn{background:#4f46e5;color:white;border:none;border-radius:8px;padding:8px 12px;cursor:pointer}
+.pama-section{padding:10px 12px;font-size:12px;color:#9ca3af;text-transform:uppercase}
+.pama-chat-list{overflow:auto}
+.pama-chat-item{padding:10px 12px;border-bottom:1px solid #222;cursor:pointer}
+.pama-chat-item.active{background:#2a2a2a;border-left:3px solid #4f46e5}
+.pama-chat-title{font-weight:600}
+.pama-chat-preview{font-size:12px;color:#9ca3af;margin-top:4px}
+.pama-empty{padding:12px;color:#9ca3af;font-size:12px}
+
+/* Credit Display Styles */
+.pama-credits-section{padding:12px;border-bottom:1px solid #333;background:#1a1a1a}
+.pama-credits-label{font-size:12px;color:#9ca3af;text-transform:uppercase;margin-bottom:6px}
+.pama-credits-balance{font-size:24px;font-weight:bold;margin-bottom:4px}
+.pama-credits-error{font-size:11px;color:#f44336;margin-top:4px}
+.pama-credits-auth{font-size:11px;color:#ff9800;margin-top:4px}
+.pama-credits-warning{margin-top:8px;padding:8px;background:#2d1b1b;border:1px solid #8b0000;border-radius:4px}
+.pama-insufficient-funds{font-size:12px;color:#f44336;font-weight:600;margin-bottom:2px}
+.pama-buy-credits{font-size:10px;color:#ff9800}
+
+.pama-sidebar-footer{margin-top:auto;padding:10px 12px;border-top:1px solid #333;display:flex;gap:8px;align-items:center;justify-content:space-between}
+.pama-user{color:#9ca3af;font-size:12px;overflow:hidden;text-overflow:ellipsis;flex:1}
+.pama-refresh-credits{background:transparent;color:#9ca3af;border:none;cursor:pointer;padding:4px;border-radius:4px;font-size:14px}
+.pama-refresh-credits:hover{background:#333;color:#fff}
+.pama-logout{background:#333;color:#fff;border:1px solid #444;border-radius:6px;padding:6px 10px;cursor:pointer}

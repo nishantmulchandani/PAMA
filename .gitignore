@@ -1,0 +1,17 @@
+node_modules/
+.debug
+.DS_Store
+*.db
+*.log
+*.backup
+*copy*.html
+test-*.html
+
+# Ignore private animation assets and databases
+server/data/*
+server/lottie_library/animations/*
+!server/lottie_library/animations/0001_Agricultural Income.json
+!server/lottie_library/animations/0002_Agro Puzzle.json
+server/lottie_library/prompts/*
+!server/lottie_library/prompts/0001_prompt.txt
+!server/lottie_library/prompts/0002_prompt.txt

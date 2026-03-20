@@ -1,0 +1,182 @@
+/* Debug Button Portal Styles */
+.debug-button-portal {
+  position: fixed !important;
+  top: 10px !important;
+  left: 10px !important;
+  background-color: #f43f5e !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 2px 6px !important;
+  font-size: 0.7rem !important;
+  cursor: pointer !important;
+  z-index: 999999 !important; /* Extremely high z-index */
+  font-weight: bold !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Debug Panel Styles */
+.debug-panel-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 9999999 !important; /* Even higher z-index than button */
+}
+
+.debug-panel-container {
+  width: 400px !important;
+  max-width: 90% !important;
+  max-height: 90vh !important;
+  background-color: #1a1a1a !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.debug-panel-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 12px 16px !important;
+  background-color: #2d2d2d !important;
+  border-bottom: 1px solid #444 !important;
+}
+
+.debug-panel-header h3 {
+  margin: 0 !important;
+  color: #f59e0b !important;
+  font-size: 16px !important;
+}
+
+.debug-panel-close {
+  background: none !important;
+  border: none !important;
+  color: #9ca3af !important;
+  font-size: 24px !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+}
+
+.debug-panel-content {
+  padding: 16px !important;
+  overflow-y: auto !important;
+  max-height: 70vh !important;
+}
+
+.debug-panel-item {
+  margin-bottom: 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.debug-panel-label {
+  color: #9ca3af !important;
+  font-size: 12px !important;
+  margin-bottom: 4px !important;
+}
+
+.debug-panel-value {
+  word-break: break-all !important;
+  font-family: monospace !important;
+  font-size: 14px !important;
+  color: white !important;
+  background-color: #333 !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+}
+
+.debug-panel-value.success {
+  color: #10b981 !important;
+}
+
+.debug-panel-value.error {
+  color: #ef4444 !important;
+}
+
+.debug-panel-scan-button {
+  background-color: #2563eb !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 8px 16px !important;
+  margin-top: 16px !important;
+  cursor: pointer !important;
+  width: 100% !important;
+  font-size: 14px !important;
+}
+
+/* Sidebar Debug Button Styles */
+.sidebar-debug-button {
+  background-color: #f43f5e !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 2px 6px !important;
+  font-size: 0.7rem !important;
+  margin-right: 8px !important;
+  cursor: pointer !important;
+  z-index: 9999 !important;
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: auto !important;
+  min-height: 20px !important;
+  order: -1 !important; /* Ensure it comes before the title */
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-weight: bold !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Ensure debug elements are always visible - with higher specificity */
+div.sidebar div.sidebar-header div button.sidebar-debug-button {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-weight: bold !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  background-color: #f43f5e !important;
+  color: white !important;
+}
+
+/* Add a fixed debug button as a fallback */
+body::before {
+  content: "DEBUG";
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: #f43f5e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 10px;
+  cursor: pointer;
+  z-index: 999999;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  display: none; /* Initially hidden, will be shown if React debug button is not found */
+}
+
+/* Animation for debug panel */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.debug-panel-overlay {
+  animation: fadeIn 0.2s ease-out !important;
+}

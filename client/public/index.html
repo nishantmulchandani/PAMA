@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PAMA Panel</title>
+  <!-- Load CSInterface first -->
+  <script src="./CSInterface.js?v=2"></script>
+  <!-- Required Node.js globals following bodymovin pattern -->
+  <script>window.__fs=require("fs")</script>
+  <script>window.__path=require("path")</script>
+  <!-- Direct server integration like bodymovin -->
+  <script>cep_node.require(__dirname+"/server/main.js")</script>
+  <!-- Mock Howler.js for compatibility -->
+  <script>window.Howl=function(){return{play:function(){},pause:function(){},stop:function(){},volume:function(){}}}</script>
+  <!-- OFFICIAL Bodymovin importer bundle (do NOT rename) -->
+  <script src="./client/js/main.50407a1f.js?v=2"></script>
+  <link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+  <div id="root"></div>
+  <!-- Consolidated PAMA bundle with JSX init, Redux, and React -->
+  <script src="pama-consolidated.bundle.js"></script>
+</body>
+</html>

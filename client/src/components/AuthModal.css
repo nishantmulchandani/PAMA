@@ -1,0 +1,8 @@
+.auth-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:1000}
+.auth-modal{background:#1f1f1f;border:1px solid #333;border-radius:12px;min-width:360px;padding:20px;color:#fff;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.auth-modal h2{margin:0 0 12px 0}
+.auth-modal form{display:flex;flex-direction:column;gap:8px}
+.auth-modal input{background:#121212;color:#fff;border:1px solid #333;border-radius:8px;padding:10px}
+.auth-modal button{background:#4f46e5;color:#fff;border:none;border-radius:8px;padding:10px;cursor:pointer}
+.auth-error{color:#f87171;font-size:12px}
+.auth-hint{color:#9ca3af;font-size:12px;margin-top:6px}

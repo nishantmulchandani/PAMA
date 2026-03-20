@@ -1,0 +1,2 @@
+﻿STYLE=Minimal Corporate   TYPE=Agro Puzzle
+SCENE: Four puzzle pieces arranged in grid showing gear, chart, leaf, and cow symbols
