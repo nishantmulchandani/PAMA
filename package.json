@@ -1,7 +1,7 @@
 {
-  "name": "offline-lottie-importer",
+  "name": "pama-lottie-assistant",
   "version": "1.0.0",
-  "description": "Offline Lottie Importer for After Effects",
+  "description": "PAMA: Smart Lottie Assistant for After Effects",
   "license": "MIT",
   "dependencies": {
     "better-sqlite3": "^11.9.1",

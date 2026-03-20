@@ -1,4 +1,4 @@
-# Offline Lottie Importer for After Effects
+# PAMA: Smart Lottie Assistant for After Effects
 
 A fully offline, free Adobe After Effects extension that allows you to manage and import your local Lottie JSON animations directly into your compositions.
 
