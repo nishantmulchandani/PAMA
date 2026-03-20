@@ -1,67 +1,88 @@
 <div align="center">
 
-# PAMA: Smart Lottie Assistant for After Effects 
-**A Next-Generation, Offline-First Asset Manager & Search Engine**
+# PAMA: **P**roject **A**wareness **M**ulti-Model **A**gent
+**The Ultimate Offline-First Lottie Engine & AI Assistant for After Effects**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Adobe After Effects](https://img.shields.io/badge/Adobe-After%20Effects-9999FF.svg?logo=adobe-after-effects&logoColor=white)]()
-[![React](https://img.shields.io/badge/Built%20With-React-61DAFB.svg?logo=react&logoColor=white)]()
-[![Node.js](https://img.shields.io/badge/Backend-Node.js-339933.svg?logo=node.js&logoColor=white)]()
+[![Adobe After Effects](https://img.shields.io/badge/Adobe-AE%20ExtendScript-9999FF.svg?logo=adobe-after-effects&logoColor=white)]()
+[![React](https://img.shields.io/badge/Frontend-React%2018-61DAFB.svg?logo=react&logoColor=white)]()
+[![Node.js](https://img.shields.io/badge/Backend-Express.js-339933.svg?logo=node.js&logoColor=white)]()
+[![Transformers.js](https://img.shields.io/badge/AI-Transformers.js-FF6F00.svg?logo=huggingface&logoColor=white)]()
 
+<p align="center">
+  <b>PAMA is not just a script. It is an advanced, offline-capable machine learning bridging tool and native Lottie-to-Shape-Layer compiler built directly into the Adobe CEP environment.</b>
+</p>
 </div>
 
 ---
 
-## 🌟 Overview
+## 🌟 The Vision: Why PAMA Exists
 
-The **PAMA Smart Lottie Assistant** is a powerful, fully localized Adobe After Effects extension designed for motion designers and developers. It serves as an advanced bridge between a local library of Lottie JSON files and your After Effects compositions. 
+Most After Effects plugins rely heavily on cloud processing, pinging corporate servers every time you want to search an asset or generate an animation. Furthermore, most Lottie importers simply drop a flattened pre-comp into your timeline.
 
-Unlike standard cloud-dependent plugins, PAMA runs an entirely offline, high-performance Node.js server directly on your machine. It utilizes a **hybrid Artificial Intelligence search engine** (combining sparse keyword indexing with dense vector embeddings) to let you instantly find the exact animation you need using natural language—all without an internet connection.
+**PAMA is different.**
 
-## 🚀 Key Features
+PAMA stands for **Project Awareness Multi-Model Agent**. It is designed as a fully robust, local-first ecosystem that understands your After Effects project structure, parses Lottie schemas natively using a custom ExtendScript compiler, and is wired to support autonomous LLM reasoning agents (like DeepSeek-R1 and Llama) operating directly on your timeline.
 
-*   **Offline-First & Privacy Focused:** Never upload your proprietary assets to a cloud provider again. Everything stays local on your machine safely.
-*   **AI-Powered Hybrid Search:** Finding files by exact name is a thing of the past. Using local transformers, PAMA understands the *context* and *semantic meaning* of your search queries via HNSW vector indices.
-*   **Bodymovin Direct Import Engine:** Convert Lottie `.json` schemas directly into native After Effects shape layers and keyframes within your active composition using our highly optimized ExtendScript bridge.
-*   **Beautiful React Interface:** A fast, responsive visual library built with React and TailwindCSS that allows you to preview animations smoothly before importing.
-*   **Zero API Keys Required:** We successfully disconnected all external cloud dependencies. The search engine uses lightweight local embeddings and runs completely on your local hardware.
+## 🚀 Core Technologies & Features
 
-## 🏗️ Architecture & Tech Stack
+### 1. 🧠 Project Awareness & AI Agent Loop (`server/agent.js`)
+PAMA isn't blind to your workspace. The extension actively scans your current composition, reading layers, footage metadata, and structure, and saves it to a highly concurrent local SQLite memory base. 
+- **The LLM Loop:** Contains a fully wired **Planner-Executor-Critic** architectural loop. When activated, PAMA can read your natural language prompts, plan an After Effects automation, generate raw ExtendScript code, execute it via Socket.io directly into the Adobe host engine, and critique its own output if parsing fails.
 
-PAMA isn't just a simple script; it is a full-stack local application meticulously engineered to run natively within the Adobe CEP environment.
+### 2. 🔍 Advanced Hybrid Semantic Search (`server/search.js`)
+We dumped standard keyword searching. PAMA integrates an incredibly powerful hybrid search engine running entirely offline inside Node.js.
+- **Dense Vector Embeddings:** Uses `@xenova/transformers` (BGE-Small models) to understand semantic context. Ask for "a vessel to keep water hot," and the engine will return your "Thermos" animations via an algorithmic understanding of the words using **HNSW (Hierarchical Navigable Small World)** vector indexing (`usearch`).
+- **Sparse Keyword Fallback:** Utilizes `flexsearch` to immediately return exact filenames and tags.
+- **Reciprocal Rank Fusion (RRF):** Intelligently combines vector and keyword search results in real-time. *(Read `SEARCH_ARCHITECTURE.md` for our full engineering paper).*
 
-*   **Frontend Panel:** React 18, TailwindCSS, Webpack
-*   **Local Backend:** Node.js, Express, Socket.IO
-*   **Search Engine:** `@xenova/transformers` (BGE-Small embeddings), `usearch` (HNSW Approximate Nearest Neighbors), `flexsearch` (Keyword matching), and Reciprocal Rank Fusion (RRF). 
-*   **Database Engine:** SQLite (`better-sqlite3`) for extremely fast, concurrent local storage. 
-*   **Host Scripting:** ExtendScript (`.jsx`) using the official Bodymovin schema interpretation logic.
+### 3. 🛠️ Native Lottie ExtendScript Compiler (`jsx/importers/lottieImporter.jsx`)
+This is the hidden beast of PAMA. Instead of downloading a `.json` schema and converting it to a video or dropping a flattened script block, our custom Bodymovin compiler natively reads the Lottie schema JSON and systematically recreates it from scratch inside After Effects.
+- Dynamically generates `addShape()`, `addText()`, `addSolid()`.
+- Calculates structural Spatial Tangents, Bezier Interpolations (`KeyframeInterpolationType`), and Temporal Easing (`KeyframeEase`) algorithmically.
+- The result? You get 100% native, mathematically precise local After Effects shape layers and keyframes exactly as they were fundamentally designed, fully editable by you.
 
-*(For a deep-dive into the search engineering, please read our [Search Architecture Documentation](SEARCH_ARCHITECTURE.md).)*
+### 4. ⚡ Modern React 18 Architecture (`client/src`)
+The UI isn't an archaic Adobe dialog box. It's a completely decoupled, ultra-fast React 18 frontend communicating with the local Node.js server via WebSockets (`Socket.IO`).
+- Styled perfectly with **TailwindCSS** for a responsive, modern Dark Mode aesthetic that matches Adobe's design language.
+- Real-time import tracking, error handling, and visual previews.
 
-## 📦 Installation
+---
+
+## 📦 Local Installation
+
+To run this massive local engine, you install it directly as an Adobe CEP extension.
 
 1. Download or clone this repository to your computer.
 2. Place the unzipped folder into your Adobe CEP extensions directory:
    - **Windows:** `C:\Users\<YourUsername>\AppData\Roaming\Adobe\CEP\extensions\`
    - **Mac:** `~/Library/Application Support/Adobe/CEP/extensions/`
-3. Because this is an unpacked developer extension, you must enable `PlayerDebugMode` in your system registry (Windows) or plist (Mac) to load unsigned extensions into Adobe products.
+3. Because this relies heavily on local Node environments, you must enable `PlayerDebugMode` in your system registry (Windows) or plist (Mac) to load unsigned extensions into Adobe products.
 4. Restart After Effects.
 5. Launch the tool via **Window > Extensions > PAMA**.
 
-## 🗺️ Roadmap & Future Features (Help Wanted!)
+> **Note on Privacy:** PAMA has had all hardcoded API keys and external LLM cloud telemetry ripped out. Out of the box, it is a 100% offline visual library and Shape-Layer compiler.
 
-PAMA was built with a vision far beyond just importing files. We are actively looking for open-source contributors to help us build the next generation of features:
+---
 
-- [ ] **AI-Powered Live Lottie Generation:** As LLM reasoning models stabilize for structured output, we plan to wire the extension directly to local LLMs. Type a prompt, and PAMA will generate a brand new live Lottie JSON animation algorithmically directly in your panel.
-- [ ] **Auto-Color Matching:** Match a Lottie's exact hex colors to your active composition's palette automatically during the import parsing phase.
-- [ ] **Live Folder Watching:** Automatically tokenize, index, and generate AI embeddings for new Lottie JSONs the exact millisecond you download them to a tracked folder.
-- [ ] **Batch Import & Storyboarding:** Select multiple Lotties and import them sequentially into the timeline with automatic time-offsetting.
+## 🗺️ The Roadmap (Multi-Modal Future)
+
+We are building PAMA to be the definitive open-source AI assistant for Adobe After Effects. We are actively seeking contributors for the following milestones:
+
+- [ ] **Live AI Lottie Generation:** Connect the `agent.js` architecture to local stable diffusion or prompt-to-Lottie reasoning models. Type a prompt, and PAMA will output the raw `.json` schema and compile it directly to the timeline instantly.
+- [ ] **Auto-Color Context Injection:** Instruct the Agent to read the `app.project.activeItem` hex palette via the scanner, and intercept the Bodymovin importer to recolor the Lottie layers algorithmically before drawing them.
+- [ ] **Live Folder HNSW Indexing:** Make the server watch a designated `Downloads` folder, automatically tokenize any new Lottie files, calculate the Dense Vectors using Transformers.js, and inject them into the local SQLite memory base instantly.
+- [ ] **Advanced Code Generation:** Re-enable the Planner-Critic loop (currently stubbed for offline) to accept API keys from the UI, allowing users to ask PAMA to automate incredibly complex, multi-composition timeline tasks via LLM-generated ExtendScript.
+
+---
 
 ## 🤝 Contributing
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**. Please read the code, check our architecture documentation, and feel free to open a Pull Request!
+If you are an engineer passionate about Machine Learning, React, or Adobe Automation (ExtendScript), we want you. 
+
+PAMA is highly modular. You can work purely on the React UI, the Express data-pipelines, or the ExtendScript compiler independently. Fork the repo, read the `SEARCH_ARCHITECTURE.md`, and submit a Pull Request.
 
 ## 📜 License
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
-*Developed with ❤️ by Nishant Mulchandani*
+*Built with ❤️ for the global motion design community.*
