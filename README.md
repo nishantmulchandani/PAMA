@@ -82,11 +82,10 @@ To run this tool, you install it directly as an Adobe CEP extension.
 Since PAMA is a full-stack local application embedded in a CEP panel, you must build the client and start the local server when altering the source code.
 
 ### 1. Start the Node.js Server (Backend/AI Search Engine)
-PAMA's AI Search, SQLite Database, and ExtendScript Gateway run locally.
+PAMA's AI Search, SQLite Database, and ExtendScript Gateway run locally. You can boot it from the root directory using the included wrapper:
 ```bash
-cd server
-npm install
-npm start
+npm install --prefix server
+node start-server.js
 ```
 *(Keep this terminal running during development to process background searches and imports).*
 
